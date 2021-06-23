@@ -40,7 +40,7 @@ namespace Calculator_Tests
         [TestMethod]
         [TestCategory("Addition")]
         [DataRow(1, 2)]
-        [DataRow(4, 7)]
+        [DataRow(4.5, 7.78)]
         [DataRow(2, 51)]
         [DataRow(87, 913)]
         public void AddTwoDoublesShouldGiveDoubles(double left, double right)
@@ -482,6 +482,7 @@ namespace Calculator_Tests
 
         }
 
+
         //Div - Test 3
         [TestMethod]
         [TestCategory("Division")]
@@ -497,6 +498,109 @@ namespace Calculator_Tests
 
         }
 
-       
+        //Div - Test 4
+        [TestMethod]
+        [TestCategory("Division")]
+        [DataRow(16, 2)]
+        [DataRow(464, 7)]
+        [DataRow(27, 51)]
+        [DataRow(8789100, 913)]
+        public void DividePositiveByPositiveNumberShouldGivePositiveNumber(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.divide(left, right);
+            Assert.IsTrue(result > 0);
+
+        }
+
+        //Div - Test 5
+        [TestMethod]
+        [TestCategory("Division")]
+        [DataRow(-16, -2)]
+        [DataRow(-464, -7)]
+        [DataRow(-27, -51)]
+        [DataRow(-8789100, -913)]
+        public void DivideNegativeByNegativeNumberShouldGivePositiveNumber(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.divide(left, right);
+            Assert.IsTrue(result > 0);
+
+        }
+
+
+        //Div - Test 6
+        [TestMethod]
+        [TestCategory("Division")]
+        [DataRow(-17, -2)]
+        [DataRow(465, 8)]
+        [DataRow(-29, 52)]
+        [DataRow(8789101, -914)]
+        public void DivideOddNumberByEvenNumberShouldGiveDecimal(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.divide(left, right);
+            Assert.IsInstanceOfType(result, typeof(double));
+
+        }
+
+        //Div - Test 7
+        [TestMethod]
+        [TestCategory("Division")]
+        [DataRow(-17, -3)]
+        [DataRow(465, 9)]
+        [DataRow(-29, 53)]
+        [DataRow(8789101, -9157)]
+        public void DivideOddNumberByOddnNumberShouldGiveOddOrDecimal(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.divide(left, right);
+            if ((result + 1) % 2 == 0)
+            {
+                Assert.IsFalse(result % 2 == 0);
+            }
+            else {
+                Assert.IsInstanceOfType(result, typeof(double));
+            }
+
+        }
+
+        //Div - Test 8
+        [TestMethod]
+        [TestCategory("Division")]
+        [DataRow(-17.86, -2)]
+        [DataRow(465.63, 8)]
+        [DataRow(-29.964, 52)]
+        [DataRow(8789101.647, -914)]
+        public void DivideDecimalByIntegerShouldGiveDecimal(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.divide(left, right);
+            Assert.IsInstanceOfType(result, typeof(double));
+
+        }
+
+        //Div - Test 9
+        [TestMethod]
+        [TestCategory("Division")]
+        [DataRow(18, 1)]
+        [DataRow(-465, 1)]
+        [DataRow(55, 1)]
+        [DataRow(87891001, 1)]
+        public void DivideWithOneShouldGiveSameNumber(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.divide(left, right);
+                Assert.IsTrue(result == left);
+        }
+
+        //Div - Test 10
+        [TestMethod]
+        [TestCategory("Division")]
+        [DataRow(0, 18)]
+        [DataRow(0, -465)]
+        [DataRow(0, 55)]
+        [DataRow(0, 87891001)]
+        public void DivideZeroWithAnyNumberShouldGiveZero(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.divide(left, right);
+            Assert.IsTrue(result == 0);
+        }
+
+
     }
 }
