@@ -307,6 +307,151 @@ namespace Calculator_Tests
 
         }
 
+
+        //Mul - Test 2
+        [TestMethod]
+        [TestCategory("Multiplication")]
+        [DataRow(1, 2)]
+        [DataRow(4, 7)]
+        [DataRow(2, 51)]
+        [DataRow(87, 913)]
+        public void MultiplyingTwoPositiveNumbersShouldGivePositiveNumber(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.multiply(left, right);
+            Assert.IsTrue(result >= 0);
+
+        }
+
+        //Mul - Test 3
+        [TestMethod]
+        [TestCategory("Multiplication")]
+        [DataRow(-1, -2)]
+        [DataRow(-4, -7)]
+        [DataRow(-2, -51)]
+        [DataRow(-87, -913)]
+        public void MultiplyingTwoNegativeNumbersShouldGivePositiveNumber(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.multiply(left, right);
+            Assert.IsTrue(result >= 0);
+
+        }
+
+        //Mul - Test 4
+        [TestMethod]
+        [TestCategory("Multiplication")]
+        [DataRow(16, -2)]
+        [DataRow(464, -7)]
+        [DataRow(27, -51)]
+        [DataRow(8789100, -913)]
+        public void MultiplyPositiveByNegativeNumberShouldGiveNegativeNumber(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.multiply(left, right);
+            Assert.IsTrue(result < 0);
+
+        }
+
+
+        //Mul - Test 5
+        [TestMethod]
+        [TestCategory("Multiplication")]
+        [DataRow(16, 2)]
+        [DataRow(-464, 8)]
+        [DataRow(28, 54)]
+        [DataRow(8789100, -914)]
+        public void MultiplyTwoEvenNumbersShouldGiveEvenNumber(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.multiply(left, right);
+            Assert.IsTrue(result % 2 == 0);
+
+        }
+
+        //Mul - Test 6
+        [TestMethod]
+        [TestCategory("Multiplication")]
+        [DataRow(17, 3)]
+        [DataRow(-465, 9)]
+        [DataRow(29, 55)]
+        [DataRow(87891001, -915)]
+        public void MultiplyTwoOddNumbersShouldGiveOddNumber(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.multiply(left, right);
+            Assert.IsFalse(result % 2 == 0);
+
+        }
+
+        //Mul - Test 7
+        [TestMethod]
+        [TestCategory("Multiplication")]
+        [DataRow(18, 3)]
+        [DataRow(-465, 10)]
+        [DataRow(30, 55)]
+        [DataRow(87891002, -915)]
+        public void MultiplyOddWithEvenNumbersShouldGiveEvenNumber(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.multiply(left, right);
+            Assert.IsTrue(result % 2 == 0);
+
+        }
+
+        //Mul - Test 8
+        [TestMethod]
+        [TestCategory("Multiplication")]
+        [DataRow(18, 0)]
+        [DataRow(-465, 0)]
+        [DataRow(0, 55)]
+        [DataRow(87891001, 0)]
+        public void MultiplyWithZeroShouldGiveZero(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.multiply(left, right);
+            Assert.IsTrue(result == 0);
+
+        }
+
+
+        //Mul - Test 9
+        [TestMethod]
+        [TestCategory("Multiplication")]
+        [DataRow(18, 1)]
+        [DataRow(-465, 1)]
+        [DataRow(1, 55)]
+        [DataRow(87891001, 1)]
+        public void MultiplyWithOneShouldGiveSameNumber(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.multiply(left, right);
+            if (left == 1)
+            {
+                Assert.IsTrue(result == right);
+            }
+            else if (right == 1)
+            {
+                Assert.IsTrue(result == left);
+            }
+
+        }
+
+        //Mul - Test 10
+        [TestMethod]
+        [TestCategory("Multiplication")]
+        [DataRow(18, 6)]
+        [DataRow(-465, 6)]
+        [DataRow(6, 55)]
+        [DataRow(87891001, 6)]
+        public void MultiplesOfSixShouldBeDivisibleByTwoOrThree(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.multiply(left, right);
+            if (result % 2 == 1)
+            {
+                Assert.IsTrue(result % 3 == 0);
+            }
+            else
+            {
+                Assert.IsTrue(result % 2 == 0);
+            }
+
+        }
+
+
+
         //Test Methods for Division
         //--------------------------
 
