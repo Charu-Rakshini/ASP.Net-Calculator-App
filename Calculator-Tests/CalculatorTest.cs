@@ -184,6 +184,110 @@ namespace Calculator_Tests
             Assert.IsTrue(result >= 0);
         }
 
+        //Sub - Test 3
+        [TestMethod]
+        [TestCategory("Subtraction")]
+        [DataRow(-2, -7)]
+        [DataRow(-7 ,- 47)]
+        [DataRow(-51 ,- 52)]
+        [DataRow(-913 , -987)]
+        public void SubtractTwoDescendingNegativeNumbersShouldGivePositiveNumberOrZero(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.subtract(left, right);
+            Assert.IsTrue(result >= 0);
+        }
+
+        //Sub - Test 4
+        [TestMethod]
+        [TestCategory("Subtraction")]
+        [DataRow(-7, -2)]
+        [DataRow(-47, -7)]
+        [DataRow(-52, -51)]
+        [DataRow(-987, -913)]
+        public void SubtractTwoAscendingNegativeNumbersShouldGiveNegativeveNumberOrZero(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.subtract(left, right);
+            Assert.IsTrue(result <= 0);
+        }
+
+        //Sub - Test 5
+        [TestMethod]
+        [TestCategory("Subtraction")]
+        [DataRow(-7, -2)]
+        [DataRow(-47, -7)]
+        [DataRow(-52, -51)]
+        [DataRow(-987, -913)]
+        public void SubtractTwoAscendingPositiveNumbersShouldGiveNegativeNumberOrZero(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.subtract(left, right);
+            Assert.IsTrue(result <= 0);
+        }
+
+        //Sub - Test 6
+        [TestMethod]
+        [TestCategory("Subtraction")]
+        [DataRow(0, 2)]
+        [DataRow(0, 7)]
+        [DataRow(0, 90)]
+        [DataRow(0, 87)]
+        public void SubtractingFromZeroShouldResultInNegatingtheNumber(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.subtract(left, right);
+            Assert.IsTrue(result <= 0);
+        }
+
+        //Sub - Test 7
+        [TestMethod]
+        [TestCategory("Subtraction")]
+        [DataRow(1, 2)]
+        [DataRow(4, 7)]
+        [DataRow(2, 51)]
+        [DataRow(87, 913)]
+        public void SubtractTwoDoublesShouldGiveDoubles(double left, double right)
+        {
+            object result = Calculator.CalculatorClass.subtract(left, right);
+            Assert.IsInstanceOfType(result, typeof(double));
+        }
+
+        //Sub - Test 8
+        [TestMethod]
+        [TestCategory("Subtraction")]
+        [DataRow(2, 2)]
+        [DataRow(4, 8)]
+        [DataRow(2, 52)]
+        [DataRow(90, 914)]
+        public void SubtractTwoEvenNumbersShouldGiveEvenNumber(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.subtract(left, right);
+            Assert.IsTrue(result % 2 == 0);
+        }
+
+        //Sub - Test 9
+        [TestMethod]
+        [TestCategory("Subtraction")]
+        [DataRow(1, 3)]
+        [DataRow(5, 7)]
+        [DataRow(3, 51)]
+        [DataRow(89, 913)]
+        public void SubtractTwoOddNumbersShouldGiveEvenNumber(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.subtract(left, right);
+            Assert.IsTrue(result % 2 == 0);
+        }
+
+        //Sub - Test 10
+        [TestMethod]
+        [TestCategory("Subtraction")]
+        [DataRow(2, 3)]
+        [DataRow(6, 7)]
+        [DataRow(4, 51)]
+        [DataRow(8972, 913)]
+        public void SubtractOddNumberFromEvenNumberShouldGiveOddNumber(double left, double right)
+        {
+            double result = Calculator.CalculatorClass.subtract(left, right);
+            Assert.IsFalse(result % 2 == 0);
+            //Assert.IsTrue((result % 2) != 0);
+        }
 
         //Test Methods for Multiplication
         //------------------------------------
