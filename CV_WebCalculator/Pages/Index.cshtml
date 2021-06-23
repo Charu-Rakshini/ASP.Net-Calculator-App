@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<form asp-action="/index" method="post">
+    <input type="number" name="leftNumber" />
+    <input type="number" name="rightNumber" />
+    <fieldset>
+        <label><input type="checkbox" name="operation" value="add" /> Add</label>
+        <label><input type="checkbox" name="operation" value="sub" /> Subtract</label>
+        <label><input type="checkbox" name="operation" value="mul" /> Multiply</label>
+        <label><input type="checkbox" name="operation" value="div" /> Divide</label>
+    </fieldset>
+
+    <input type="submit" value="Calculate" />
+</form>
+
+@if (@Model.ResultSet)
+{
+    <p> Answer is <output>@Model.Result</output></p>
+}
