@@ -38,7 +38,7 @@ namespace CV_WebCalculator.Pages
 
         public void OnPost(double leftNumber, double rightNumber, string operation)
         {
-
+            //Switching the type of calculation to be performed
             switch (operation)
             {
                 case "add":
@@ -46,17 +46,14 @@ namespace CV_WebCalculator.Pages
                     ResultSet = true;
                     break;
                 case "sub":
-                    //Result = leftNumber - rightNumber;
                     Result = CalculatorClass.subtract(leftNumber, rightNumber);
                     ResultSet = true;
                     break;
                 case "mul":
-                    //Result = leftNumber * rightNumber;
                     Result = CalculatorClass.multiply(leftNumber, rightNumber);
                     ResultSet = true;
                     break;
                 case "div":
-                    //Result = leftNumber / rightNumber;
                     Result = CalculatorClass.divide(leftNumber, rightNumber);
                     ResultSet = true;
                     break;
