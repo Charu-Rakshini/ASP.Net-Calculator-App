@@ -2,7 +2,7 @@
 
 namespace Calculator
 {
-    public class CalculatorClass
+    public static class CalculatorClass
     {
         static public double add(double leftNumber, double rightNumber)
         {

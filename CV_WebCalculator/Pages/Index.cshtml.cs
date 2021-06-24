@@ -5,12 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Calculator;
 
 namespace CV_WebCalculator.Pages
 {
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+
+        //Calculator.CalculatorClass calc = new CalculatorClass();
+
 
         public double Result
         {
@@ -38,19 +42,22 @@ namespace CV_WebCalculator.Pages
             switch (operation)
             {
                 case "add":
-                    Result = leftNumber + rightNumber;
+                    Result = CalculatorClass.add(leftNumber, rightNumber);
                     ResultSet = true;
                     break;
                 case "sub":
-                    Result = leftNumber - rightNumber;
+                    //Result = leftNumber - rightNumber;
+                    Result = CalculatorClass.subtract(leftNumber, rightNumber);
                     ResultSet = true;
                     break;
                 case "mul":
-                    Result = leftNumber * rightNumber;
+                    //Result = leftNumber * rightNumber;
+                    Result = CalculatorClass.multiply(leftNumber, rightNumber);
                     ResultSet = true;
                     break;
                 case "div":
-                    Result = leftNumber / rightNumber;
+                    //Result = leftNumber / rightNumber;
+                    Result = CalculatorClass.divide(leftNumber, rightNumber);
                     ResultSet = true;
                     break;
                 default:
